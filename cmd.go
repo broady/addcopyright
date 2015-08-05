@@ -1,3 +1,7 @@
+// Copyright 2015 Google Inc. All rights reserved.
+// Use of this source code is governed by the Apache 2.0
+// license that can be found in the LICENSE file.
+
 // Command addcopyright adds copyright headers to several files at once.
 package main
 
@@ -13,11 +17,11 @@ import (
 
 var (
 	headerFile     = flag.String("header", "", "Path to file containing full header text")
-	sentinelString = flag.String("sentinel", "// Copyright", "String to look for")
+	sentinelString = flag.String("sentinel", "/"+"/ Copyright", "String to look for")
 	copyrightOwner = flag.String("owner", "", "Copyright owner")
 )
 
-const defaultHeader = `// Copyright %d %s. All rights reserved.
+const defaultHeader = `/` + `/ Copyright %d %s. All rights reserved.
 // Use of this source code is governed by the Apache 2.0
 // license that can be found in the LICENSE file.
 
