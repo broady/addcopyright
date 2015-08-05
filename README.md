@@ -6,4 +6,4 @@ Usage:
 
     $ go get github.com/broady/addcopyright
 
-    $ addcopyright -owner "Liliana Vess" *.go
+    $ addcopyright -apache2 -owner "Liliana Vess" *.go
