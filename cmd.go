@@ -63,7 +63,13 @@ func main() {
 		usage("must provide a license type: -apache2 or custom (-header)")
 	}
 
-	if *headerFile != "" {
+	if *headerFile == "-" {
+		h, err := ioutil.ReadAll(os.Stdin)
+		if err != nil {
+			log.Fatalf("could not from stdin: %v", err)
+		}
+		head = h
+	} else if *headerFile != "" {
 		h, err := ioutil.ReadFile(*headerFile)
 		if err != nil {
 			log.Fatalf("could not read header file: %v", err)
